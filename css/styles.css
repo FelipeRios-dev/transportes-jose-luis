@@ -1,0 +1,183 @@
+/* =========================================================
+   TRANSPORTE JOSÉ LUIS - ESTILOS PRINCIPALES
+   Edita aquí colores, tipografías, tamaños y distribución.
+   ========================================================= */
+
+/* 1. Variables globales: cambiar estos valores modifica el tema completo. */
+:root {
+  --navy: #10243a;
+  --navy-light: #193955;
+  --orange: #f4a62a;
+  --orange-dark: #df8d12;
+  --ink: #172331;
+  --muted: #657384;
+  --paper: #ffffff;
+  --soft: #f3f6f8;
+  --border: #e2e8ee;
+  --radius: 16px;
+  --shadow: 0 18px 50px rgba(16, 36, 58, .10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.container { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+
+/* 2. Encabezado y navegación */
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+.nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--navy); }
+.brand-mark {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  color: var(--navy); background: var(--orange); border-radius: 12px;
+  font-weight: 900; letter-spacing: -2px;
+}
+.brand-copy { display: grid; line-height: 1.1; letter-spacing: 1.3px; }
+.brand-copy strong { font-size: 13px; }
+.brand-copy small { margin-top: 4px; font-size: 11px; letter-spacing: 3px; }
+.main-nav { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 700; }
+.main-nav a:not(.nav-cta):hover { color: var(--orange-dark); }
+.nav-cta { padding: 11px 18px; color: white; background: var(--navy); border-radius: 8px; }
+.menu-toggle { display: none; border: 0; background: none; padding: 8px; cursor: pointer; }
+.menu-toggle span { display: block; width: 25px; height: 2px; margin: 5px; background: var(--navy); }
+
+/* 3. Portada */
+.hero {
+  position: relative; min-height: 590px; display: flex; align-items: center;
+  color: white; overflow: hidden;
+  /* Fondo provisional: puedes reemplazarlo por una foto propia del camión. */
+  background: linear-gradient(110deg, #0b1b2c 0%, #183b58 65%, #244b68 100%);
+}
+.hero::after {
+  content: "JL"; position: absolute; right: 7%; bottom: -130px;
+  color: rgba(255,255,255,.045); font-size: clamp(260px, 38vw, 520px);
+  line-height: 1; font-weight: 900; pointer-events: none;
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,20,34,.3), transparent); }
+.hero-content { position: relative; z-index: 1; padding-top: 70px; padding-bottom: 70px; }
+.eyebrow { margin: 0 0 14px; color: var(--orange-dark); font-size: 11px; font-weight: 900; letter-spacing: 2px; }
+.hero .eyebrow { color: var(--orange); }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 760px; margin-bottom: 22px; font-size: clamp(38px, 5.4vw, 66px); line-height: 1.08; letter-spacing: -2px; }
+h1 span { color: var(--orange); }
+.hero-text { max-width: 620px; color: #d6e0e9; font-size: 17px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 20px; border: 0; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: .2s ease; }
+.button-primary { color: #172331; background: var(--orange); }
+.button-primary:hover { background: #ffc15a; transform: translateY(-2px); }
+.button-outline { color: white; border: 1px solid rgba(255,255,255,.5); background: transparent; }
+.button-outline:hover { background: rgba(255,255,255,.1); }
+.hero-note { margin-top: 32px; color: #d6e0e9; font-size: 13px; }
+.status-dot { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: #62d49b; }
+
+/* 4. Datos rápidos */
+.quick-facts { background: var(--orange); }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 23px; padding-bottom: 23px; gap: 20px; }
+.facts-grid div { display: grid; gap: 2px; padding-left: 18px; border-left: 1px solid rgba(16,36,58,.25); }
+.facts-grid strong { color: var(--navy); font-size: 18px; }
+.facts-grid span { color: #493719; font-size: 12px; }
+
+/* 5. Secciones y tarjetas de servicios */
+.section { padding: 92px 0; }
+.section-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+.section-heading h2, .vehicle-copy h2, .about-grid h2, .contact-intro h2 { margin-bottom: 14px; color: var(--navy); font-size: clamp(30px, 4vw, 43px); line-height: 1.15; letter-spacing: -1.2px; }
+.section-heading > p:last-child { color: var(--muted); }
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.service-card { padding: 30px; border: 1px solid var(--border); border-radius: var(--radius); background: white; transition: .2s ease; }
+.service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.service-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 22px; border-radius: 13px; color: var(--navy); background: #fff0d5; font-size: 25px; font-weight: 900; }
+.service-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 19px; }
+.service-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+/* 6. Sección del vehículo */
+.vehicle-section { padding: 82px 0; background: var(--soft); }
+.vehicle-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 65px; }
+.vehicle-image { position: relative; padding: 22px; border-radius: 22px; background: white; box-shadow: var(--shadow); }
+.vehicle-image img { width: 100%; border-radius: 12px; }
+.image-caption { display: block; padding-top: 10px; color: var(--muted); font-size: 11px; text-align: center; }
+.vehicle-copy > p:not(.eyebrow) { color: var(--muted); }
+.check-list { padding: 0; margin: 22px 0; list-style: none; }
+.check-list li { position: relative; padding: 7px 0 7px 27px; font-size: 14px; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: #21966a; font-weight: 900; }
+.text-link { color: var(--navy); font-weight: 900; }
+.text-link span { color: var(--orange-dark); }
+
+/* 7. Quiénes somos */
+.about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+.about-grid p { color: var(--muted); }
+.about-grid .muted { font-size: 13px; }
+
+/* 8. Contacto y formulario */
+.contact-section { padding: 90px 0; color: white; background: var(--navy); }
+.contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: start; }
+.contact-intro h2 { color: white; }
+.contact-intro > p:not(.eyebrow) { color: #c3d0dc; }
+.contact-detail { display: flex; align-items: center; gap: 14px; margin-top: 28px; }
+.contact-detail > span { display: grid; place-items: center; width: 42px; height: 42px; color: var(--navy); background: var(--orange); border-radius: 10px; font-size: 20px; }
+.contact-detail div { display: grid; }
+.contact-detail small { color: #c3d0dc; }
+.quote-form { padding: 30px; color: var(--ink); background: white; border-radius: var(--radius); box-shadow: var(--shadow); }
+.form-row { display: grid; gap: 7px; margin-bottom: 16px; }
+.form-row label { color: var(--navy); font-size: 12px; font-weight: 800; }
+.form-row input, .form-row textarea { width: 100%; padding: 12px 13px; border: 1px solid var(--border); border-radius: 7px; outline: none; font: inherit; font-size: 14px; background: #fbfcfd; }
+.form-row input:focus, .form-row textarea:focus { border-color: var(--orange-dark); box-shadow: 0 0 0 3px rgba(244,166,42,.15); }
+.form-row-two { grid-template-columns: 1fr 1fr; gap: 13px; }
+.form-row-two > div { display: grid; gap: 7px; }
+.button-full { width: 100%; }
+.form-legal, .form-feedback { margin: 10px 0 0; color: var(--muted); font-size: 11px; }
+.form-feedback { color: #a34b19; font-weight: 700; }
+
+/* 9. Pie de página */
+.site-footer { padding: 30px 0; color: #c4d0dc; background: #091725; }
+.footer-content { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.brand-footer { color: white; }
+.footer-content p { margin: 0; font-size: 12px; }
+
+/* 10. Adaptación para tabletas y celulares */
+@media (max-width: 850px) {
+  .main-nav { gap: 16px; }
+  .facts-grid { grid-template-columns: repeat(2, 1fr); }
+  .vehicle-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .vehicle-image { max-width: 620px; }
+}
+@media (max-width: 650px) {
+  .container { width: min(100% - 30px, 540px); }
+  .nav-wrap { min-height: 68px; }
+  .menu-toggle { display: block; }
+  .main-nav {
+    display: none; position: absolute; top: 68px; left: 0; right: 0;
+    padding: 18px 22px 24px; background: white; border-bottom: 1px solid var(--border);
+    flex-direction: column; align-items: stretch; gap: 15px;
+  }
+  .main-nav.is-open { display: flex; }
+  .nav-cta { text-align: center; }
+  .hero { min-height: 570px; }
+  .hero-content { padding-top: 60px; padding-bottom: 60px; }
+  h1 { letter-spacing: -1.3px; }
+  .hero-text { font-size: 15px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .facts-grid { gap: 18px 10px; }
+  .facts-grid div { padding-left: 10px; }
+  .facts-grid strong { font-size: 15px; }
+  .facts-grid span { font-size: 11px; }
+  .section, .contact-section { padding: 68px 0; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .vehicle-section { padding: 60px 0; }
+  .vehicle-image { padding: 12px; }
+  .form-row-two { grid-template-columns: 1fr; }
+  .quote-form { padding: 22px 17px; }
+  .footer-content { flex-direction: column; align-items: flex-start; }
+}
